@@ -258,7 +258,7 @@ form:focus-within input::placeholder {
 	overflow: hidden;
 	transition: all 0.3s ease;
   }
-  
+   
   .search-bar form {
 	display: flex;
 	align-items: center;
