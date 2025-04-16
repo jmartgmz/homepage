@@ -31,7 +31,7 @@ const navConfig = {
       { name: "link", url: "https://placeholder" }
     ]
   },
-  // Yellow category
+  // Other category
   miscellaneous: {
     title: "title",
     color: "yellow",
@@ -42,7 +42,7 @@ const navConfig = {
       { name: "link", url: "https://placeholder" }
     ]
   },
-  // Red category
+  // Other category
   other: {
     title: "title",
     color: "red",
