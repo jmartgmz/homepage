@@ -1,108 +1,94 @@
 <!DOCTYPE html>
-<!--Starpage by -->
+<!--Starpage with configurable navigation -->
 <html>
-	<head>
-		<title>~</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="stylesheet" style="text/css" href="general.css" />
-	</head>
-
-	<body>	
-		<div class="main" id="main1" style="display: block">
-			<img class="image-wrapper" src="img/side4.gif"/>
-			<header>
-            	<h1>Welcome to the wired, <span class="flair">K</span></h1>
-                <h2 class="litequote">He who is not bold enough to be stared at from across the abyss is not bold enough to stare into it <span class="flair">himself</span></h2>
-			</header>
-
-            <nav>
-            	<ul class="blue">
-            		<a>Frequent</a>
-            			<li><a href="https://github.com/Kierstro">Github</a></li>
-            			<li><a href="https://twitter.com/home">Twitter</a></li>
-            	</ul>
-
-            	<ul class="green">
-            		<a>4Chan</a>
-            			<li><a href="http://boards.4chan.org/g/">/g/</a></li>
-                    		<li><a href="http://boards.4chan.org/v/">/v/</a></li>
-                    		<li><a href="http://boards.4chan.org/a/">/a/</a></li>
-                    		<li><a href="https://boards.4chan.org/wg/">/wg/</a></li>
-                </ul>
-
-                <ul class="red">
-            		<a>Entertainment</a>
-            			<li><a href="https://www.youtube.com/">Youtube</a></li>
-            			<li><a href="https://www.twitch.tv/">Twitch</a></li>
-            			<li><a href="https://www.reddit.com/">Reddit</a></li>
-            			<li><a href="https://soundcloud.com/">SoundCloud</a></li>
-
-            	</ul>
-
-                <ul class="yellow">
-            		<a>Miscellaneous</a>
-            			<li><a href="https://proton.me/mail/">Mail</a></li>
-            			<li><a href="https://nyaa.si/">Nyaa</a></li>
-            			<li><a href="https://lainchan.org/">Lainchan</a>
-            			<li><a href="https://pastebin.com/">Pastebin</a></li>
-            	</ul>
-
-            </nav>
-    	</div>
-
-        <div class="main" id="main2" style="display: none;">
-        	<img class="image-wrapper" src="img/side5.gif"/>
-
-        	<iframe  src="https://www.youtube.com/embed/DrxJCOVsV1E?list=PLNqBorCQlYFPf4cvVUi-1pet0tO_J1x-9" width="100%" height="100%" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        
-        <div class="bottomcontainer">
-
-        	<!--Button script-->
-			<script type="text/javascript">
-			function show( show1 ) {
-			  document.getElementById(show1).style.display="block";
-			}
-			function hide( hide1 ) {
-			  document.getElementById(hide1).style.display="none";
-			}
-			function tog( tog1 ) {
-			  document.getElementById(tog1).style.backgroundColor="#0972D6";
-			}
-			function toh( toh1 ) {
-			  document.getElementById(toh1).style.backgroundColor="#FFFFFF";
-			}
-			</script>
-
-			<div class="button" id="btn1" onclick = "show('main1');hide('main2');tog('btn1');toh('btn2');"></div>
-			<div class="button" id="btn2" onclick = "show('main2');hide('main1');tog('btn2');toh('btn1');"></div>
-
-			<!--Live clock script-->
-			<div class="time" id="time">
-				<script>
-					//document.getElementById("main").innerHTML = Date();
-					function updateClock() {
-						var days = ['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
-						var m = new Date();
-						var dateString =
-						  (days[ m.getDay() ]) + " " +
-						  ("0" + m.getDate()).slice(-2) + "/" +
-						  ("0" + (m.getMonth()+1)).slice(-2) +"/"+
-						  m.getFullYear() +" "+
-						  ("0" + m.getHours()).slice(-2) + ":" +
-						  ("0" + m.getMinutes()).slice(-2) + ":" +
-						  ("0" + m.getSeconds()).slice(-2);
-						
-						// set the content of the element with the ID time to the formatted string
-						document.getElementById('time').innerHTML = dateString;
-
-						// call this function again in 1000ms
-						setTimeout(updateClock, 1000);
-					}
-					updateClock(); // initial call
-				</script>
-        </div>
-        <div class="lovetext">愛を込めて作られた</div>
+<head>
+    <title>~</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="general.css" />
+</head>
+<body>
+    <div class="main" id="main1" style="display: block">
+        <img class="image-wrapper" src="img/tower.png" />
+        <nav id="navigation">
+            <!-- Navigation will be generated from config.js -->
+        </nav>
     </div>
+    <div class="bottomcontainer">
+        <!--Live clock script-->
+        <div class="time" id="time">
+            <script>
+                function updateClock() {
+                    var days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+                    var m = new Date();
+                    var hours = m.getHours();
+                    var ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    var dateString =
+                        (days[m.getDay()]) + " " +
+                        ("0" + m.getDate()).slice(-2) + "/" +
+                        ("0" + (m.getMonth() + 1)).slice(-2) + "/" +
+                        m.getFullYear() + " " +
+                        ("0" + hours).slice(-2) + ":" +
+                        ("0" + m.getMinutes()).slice(-2) + ":" +
+                        ("0" + m.getSeconds()).slice(-2) + " " +
+                        ampm;
+                    // set the content of the element with the ID time to the formatted string
+                    document.getElementById('time').innerHTML = dateString;
+                    // call this function again in 1000ms
+                    setTimeout(updateClock, 1000);
+                }
+                updateClock(); // initial call
+            </script>
+        </div>
+        <div class="username">JASON MARTINEZ</div>
+    </div>
+
+    <!-- Search the Web Bar -->
+    <div class="search-bar">
+        <form action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" name="q" placeholder="Search the web..." required />
+            <button type="submit">SEARCH</button>
+        </form>
+    </div>
+
+    <!-- Load configuration file -->
+    <script src="config.js"></script>
+    
+    <!-- Script to generate navigation from config -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navElement = document.getElementById('navigation');
+            
+            // Generate navigation from config
+            for (const category in navConfig) {
+                const categoryData = navConfig[category];
+                
+                // Create category element
+                const ul = document.createElement('ul');
+                ul.className = categoryData.color;
+                
+                // Create category title
+                const titleElement = document.createElement('a');
+                titleElement.textContent = categoryData.title;
+                ul.appendChild(titleElement);
+                
+                // Create links
+                categoryData.links.forEach(link => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = link.url;
+                    a.textContent = link.name;
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+                
+                // Add category to navigation
+                navElement.appendChild(ul);
+            }
+        });
+    </script>
+</body>
+</html>
