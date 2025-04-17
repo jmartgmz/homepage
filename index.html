@@ -9,55 +9,34 @@
     <link rel="stylesheet" type="text/css" href="css/general.css" />
 </head>
 <body>
-    <div class="main" id="main1" style="display: block">
-        <img class="image-wrapper" src="images/tower.png" />
-        <nav id="navigation">
-            <!-- Navigation will be generated from config.js -->
-        </nav>
-    </div>
-    <div class="bottomcontainer">
-        <!--Live clock script-->
-        <div class="time" id="time">
-            <script>
-                function updateClock() {
-                    var days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-                    var m = new Date();
-                    var hours = m.getHours();
-                    var ampm = hours >= 12 ? 'PM' : 'AM';
-                    hours = hours % 12;
-                    hours = hours ? hours : 12; // the hour '0' should be '12'
-                    var dateString =
-                        (days[m.getDay()]) + " " +
-                        ("0" + m.getDate()).slice(-2) + "/" +
-                        ("0" + (m.getMonth() + 1)).slice(-2) + "/" +
-                        m.getFullYear() + " " +
-                        ("0" + hours).slice(-2) + ":" +
-                        ("0" + m.getMinutes()).slice(-2) + ":" +
-                        ("0" + m.getSeconds()).slice(-2) + " " +
-                        ampm;
-                    // set the content of the element with the ID time to the formatted string
-                    document.getElementById('time').innerHTML = dateString;
-                    // call this function again in 1000ms
-                    setTimeout(updateClock, 1000);
-                }
-                updateClock(); // initial call
-            </script>
+    <div class="scaling-container">
+        <div class="main" id="main1" style="display: block">
+            <img class="image-wrapper" src="images/tower.png" />
+            <nav id="navigation">
+                <!-- Navigation will be generated from config.js -->
+            </nav>
         </div>
-        <div class="username">JASON MARTINEZ</div>
-    </div>
+        <div class="bottomcontainer">
+            <!--Live clock script-->
+            <div class="time" id="time">
+                <!-- Clock will be updated by JavaScript -->
+            </div>
+            <div class="username">JASON MARTINEZ</div>
+        </div>
 
-    <!-- Search the Web Bar -->
-    <div class="search-bar">
-        <form action="https://www.google.com/search" method="get" target="_blank">
-            <input type="text" name="q" placeholder="Search the web..." required />
-            <button type="submit">SEARCH</button>
-        </form>
+        <!-- Search the Web Bar -->
+        <div class="search-bar">
+            <form action="https://www.google.com/search" method="get" target="_blank">
+                <input type="text" name="q" placeholder="Search the web..." required />
+                <button type="submit">SEARCH</button>
+            </form>
+        </div>
     </div>
 
     <!-- Load configuration file -->
     <script src="javascript/config.js"></script>
     
-    <!-- Script to generate navigation from config -->
+    <!-- Script to generate navigation from config and handle scaling -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navElement = document.getElementById('navigation');
@@ -88,7 +67,64 @@
                 // Add category to navigation
                 navElement.appendChild(ul);
             }
+            
+            // Initialize clock
+            updateClock();
+            
+            // Initialize scaling
+            updateScale();
+            
+            // Add window resize event listener
+            window.addEventListener('resize', updateScale);
         });
+        
+        // Clock function
+        function updateClock() {
+            var days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+            var m = new Date();
+            var hours = m.getHours();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            var dateString =
+                (days[m.getDay()]) + " " +
+                ("0" + m.getDate()).slice(-2) + "/" +
+                ("0" + (m.getMonth() + 1)).slice(-2) + "/" +
+                m.getFullYear() + " " +
+                ("0" + hours).slice(-2) + ":" +
+                ("0" + m.getMinutes()).slice(-2) + ":" +
+                ("0" + m.getSeconds()).slice(-2) + " " +
+                ampm;
+            // set the content of the element with the ID time to the formatted string
+            document.getElementById('time').innerHTML = dateString;
+            // call this function again in 1000ms
+            setTimeout(updateClock, 1000);
+        }
+        
+        // Scale function - updates the scale factor based on window size
+        function updateScale() {
+            const container = document.querySelector('.scaling-container');
+            const originalWidth = 1344; // Original design width
+            const originalHeight = 638; // Original design height
+            const baseScale = 0.8; // Base scale factor (70% of original size)
+            
+            // Calculate available space
+            const availableWidth = window.innerWidth;
+            const availableHeight = window.innerHeight;
+            
+            // Calculate scale factors for width and height
+            const scaleX = (availableWidth / originalWidth) * baseScale;
+            const scaleY = (availableHeight / originalHeight) * baseScale;
+            
+            // Use the smaller scale factor to ensure everything fits
+            const scaleFactor = Math.min(scaleX, scaleY);
+            
+            // Apply the scale factor as a CSS variable
+            document.documentElement.style.setProperty('--scale-factor', scaleFactor);
+            
+            // For debugging (optional)
+            console.log(`Window size: ${availableWidth}x${availableHeight}, Scale: ${scaleFactor}`);
+        }
     </script>
 </body>
 </html>

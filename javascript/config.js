@@ -1,56 +1,39 @@
 // Navigation Configuration File
 const navConfig = {
-  // Blue category
-  frequent: {
-    title: "title",
+   // Other category
+  fourchan: {
+    title: "University",
     color: "blue",
     links: [
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" }
+      { name: "Canvas", url: "https://udel.instructure.com" },
+      { name: "UDSIS", url: "https://my.udel.edu" },
     ]
   },
-  // Green category
-  fourchan: {
-    title: "title",
-    color: "green",
-    links: [
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" }
-    ]
-  },
-  // Red category
+   // Other category
   entertainment: {
-    title: "title",
-    color: "red",
+    title: "Proton",
+    color: "blue",
     links: [
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" }
+      { name: "Mail", url: "https://mail.proton.me/inbox" },
+      { name: "Storage", url: "https://drive.proton.me/" },
     ]
   },
   // Other category
   miscellaneous: {
-    title: "title",
-    color: "yellow",
+    title: "Google",
+    color: "blue",
     links: [
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" }
+      { name: "Mail", url: "https://mail.google.com/mail/inbox" },
+      { name: "Storage", url: "https://drive.google.com/drive/home" },
     ]
   },
   // Other category
   other: {
-    title: "title",
-    color: "red",
+    title: "LLM",
+    color: "blue",
     links: [
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" },
-      { name: "link", url: "https://placeholder" }
+      { name: "GPT", url: "https://chatgpt.com" },
+      { name: "Claude", url: "https://claude.ai" },
     ]
   },
 };
