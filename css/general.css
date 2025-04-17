@@ -1,16 +1,13 @@
 @font-face {
 	font-family: 'Cascadia Code';
-	src: url('Cascadia/CascadiaCode.ttf');
-
-	font-family: 'Cascadia Code Bold';
-	src: url('Cascadia/CascadiaCodeNF.ttf');
+	src: url('fonts/cascadia/CascadiaCode.ttf');
 }
 
 body {
 	font-family: 'Cascadia Code', monospace;
 	font-size: 30px;
 	background-color: #0F0F12;
-	background-image: url("img/");
+	background-image: url("images/");
 	background-repeat: repeat;
 	width: 1344px;
 	height: 638px;
@@ -257,56 +254,64 @@ form:focus-within input::placeholder {
 	border-color: #232328;
 	overflow: hidden;
 	transition: all 0.3s ease;
-  }
-   
-  .search-bar form {
+}
+
+.search-bar form {
 	display: flex;
 	align-items: center;
 	width: 100%;
-	padding: 0; /* Remove padding that might be affecting layout */
+	padding: 0;
+	/* Remove padding that might be affecting layout */
 	position: relative;
 	top: 0;
 	left: 0;
-	margin: 0; /* Reset margins */
-  }
-  
-  .search-bar input[type="text"] {
+	margin: 0;
+	/* Reset margins */
+}
+
+.search-bar input[type="text"] {
 	flex: 1;
 	padding: 12px 16px;
 	background: transparent;
 	border: none;
 	outline: none;
 	color: #ffffff;
-	font-family: Cascadia Code Bold;
+	font-family: 'Cascadia Code', monospace;
 	font-size: 16px;
-  }
-  
-  .search-bar input[type="text"]::placeholder {
+}
+
+.search-bar input[type="text"]::placeholder {
 	color: rgba(255, 255, 255, 0.5);
 	font-style: italic;
-  }
-  
-  .search-bar button {
-	background: linear-gradient(180deg, #7a99ff, #3c49ff);
-	color: white;
-	border: none;
-	padding: 12px 20px;
+}
+
+.search-bar button {
+	background: rgba(0, 43, 172, 0.6);
+	color: rgb(215, 228, 255);
+	padding: 12px 26px;
 	cursor: pointer;
-	font-family: Cascadia Code Bold;
+	font-family: 'Cascadia Code', monospace;
 	font-weight: bold;
 	transition: all 0.3s ease;
-	position: relative; /* Change from absolute positioning */
-	right: 0;
+	position: absolute;
+	/* Change from absolute positioning */
+	right:  0px;
+	top: -1px;
+	bottom: -1px;
+	
+	border-style: solid;
+	border-width: 2px;
+	border-color: #232328;
 	/* Remove any margin or width constraints on the button */
-  }
-  
-  /* Optional: Responsive design for smaller screens */
-  @media (max-width: 768px) {
+}
+
+/* Optional: Responsive design for smaller screens */
+@media (max-width: 768px) {
 	.search-bar {
-	  position: relative;
-	  top: auto;
-	  right: auto;
-	  width: 90%;
-	  margin: 20px auto;
+		position: relative;
+		top: auto;
+		right: auto;
+		width: 90%;
+		margin: 20px auto;
 	}
-  }
+}
