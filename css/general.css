@@ -88,7 +88,7 @@ h1 {
 	display: block;
 	border-style: solid;
 	border-width: 2px;
-	border-color: #232328;
+	border-color: #2323288f;;
 	position: absolute;
 	top: -4px;
 	width: 1072px;
@@ -132,7 +132,7 @@ h1 {
 	object-fit: cover;
 	border-style: solid;
 	border-width: 2px;
-	border-color: #232328;
+	border-color: #2323288f;
 	position: absolute;
 	top: -2px;
 	bottom: 400px;
@@ -303,7 +303,7 @@ form:focus-within input::placeholder {
 	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 	border-style: solid;
 	border-width: 2px;
-	border-color: #232328;
+	border-color: #2323288f;;
 	overflow: hidden;
 	transition: all 0.3s ease;
 }
@@ -348,5 +348,5 @@ form:focus-within input::placeholder {
 		bottom: -1px;
 		border-style: solid;
 		border-width: 2px;
-		border-color: #232328;
+		border-color: #2323288f;;
 	}
