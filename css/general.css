@@ -145,7 +145,7 @@ h1 {
 }
 
 .time {
-	color: #FFFFFF;
+	color: #a1c0ff;
 	font-family: 'Cascadia Code', monospace;
 	font-size: 22px;
 	position: absolute;
@@ -160,7 +160,7 @@ nav {
 	font-size: 20px;
 	text-align: center;
 	top: 180px;
-	left: -25px;
+	left: -18px;
 	width: 80%;
 	max-width: 800px;
 	margin: 0 auto;
@@ -178,7 +178,7 @@ ul {
 	border-color: #18181D;
 	border-right-width: 3px;
 	border-right-style: solid;
-	padding: 4px 25px;
+	padding: 20px 50px;
 	transition: all 0.8s;
 	cursor: default;
 	list-style-type: none;
@@ -252,7 +252,7 @@ div[class=username] {
 	display: block;
 	width: auto;
 	position: relative;
-	left: 1205px;
+	left: 1218px;
 	font-size: 22px;
 }
 
@@ -324,19 +324,19 @@ form:focus-within input::placeholder {
 		background: transparent;
 		border: none;
 		outline: none;
-		color: #ffffff;
+		color: #d5edff;
 		font-family: 'Cascadia Code', monospace;
 		font-size: 16px;
 	}
 
 	.search-bar input[type="text"]::placeholder {
-		color: rgba(255, 255, 255, 0.5);
+		color: rgba(133, 176, 255, 0.5);
 		font-style: italic;
 	}
 
 	.search-bar button {
 		background: rgba(0, 43, 172, 0.6);
-		color: rgb(215, 228, 255);
+		color: rgb(103, 149, 255);
 		padding: 12px 26px;
 		cursor: pointer;
 		font-family: 'Cascadia Code', monospace;
