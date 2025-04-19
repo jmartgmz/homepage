@@ -7,6 +7,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Load configuration file first -->
+    <script src="javascript/config.js"></script>
+    
+    <!-- Font loader script - must run before CSS loads -->
+    <script>
+        // Create a style element for the dynamic font-face declaration
+        const fontStyle = document.createElement('style');
+        document.head.appendChild(fontStyle);
+        
+        // Set up the dynamic font-face declaration based on config
+        function setupFont() {
+            if (typeof globalSettings !== 'undefined' && globalSettings.font) {
+                // Create @font-face rule
+                const fontFace = `
+                    @font-face {
+                        font-family: '${globalSettings.font.family}';
+                        src: url('${globalSettings.font.path}');
+                    }
+                `;
+                
+                // Add the font-face declaration to the style element
+                fontStyle.textContent = fontFace;
+                
+                // Create another style element for setting font-family on elements
+                const fontFamilyStyle = document.createElement('style');
+                fontFamilyStyle.textContent = `
+                    body, .time, div[class=username], .search-bar input[type="text"], .search-bar button {
+                        font-family: '${globalSettings.font.family}', monospace;
+                    }
+                `;
+                document.head.appendChild(fontFamilyStyle);
+            }
+        }
+        
+        // Run setup as soon as possible
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupFont);
+        } else {
+            setupFont();
+        }
+    </script>
+    
+    <!-- Load CSS after font setup -->
     <link rel="stylesheet" type="text/css" href="css/general.css" />
 </head>
 <body>
@@ -33,9 +76,6 @@
             </form>
         </div>
     </div>
-
-    <!-- Load configuration file -->
-    <script src="javascript/config.js"></script>
     
     <!-- Script to generate navigation from config and handle scaling -->
     <script>

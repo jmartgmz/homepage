@@ -1,6 +1,6 @@
 // Navigation Configuration File
 const navConfig = {
-   // Other category
+  // Other category
   fourchan: {
     title: "University",
     color: "blue",
@@ -9,7 +9,7 @@ const navConfig = {
       { name: "UDSIS", url: "https://my.udel.edu" },
     ]
   },
-   // Other category
+  // Other category
   entertainment: {
     title: "Proton",
     color: "blue",
@@ -36,4 +36,12 @@ const navConfig = {
       { name: "Claude", url: "https://claude.ai" },
     ]
   },
+};
+
+// Global settings
+const globalSettings = {
+  font: {
+    family: 'GlobalFont',
+    path: 'fonts/montserrat/Montserrat-Regular.ttf', // Path to the font file
+  }
 };

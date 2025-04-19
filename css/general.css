@@ -32,10 +32,7 @@ ul>a {
 	transition: all 0.8s;
 }
 
-@font-face {
-	font-family: 'Cascadia Code';
-	src: url('fonts/cascadia/CascadiaCode.ttf');
-}
+/* Font-face declaration will be added dynamically by JavaScript */
 
 html,
 body {
@@ -61,7 +58,7 @@ body {
 }
 
 body {
-	font-family: 'Cascadia Code', monospace;
+	/* Font-family will be set dynamically by JavaScript */
 	font-size: 30px;
 	background-image: url("images/");
 	background-repeat: repeat;
@@ -146,7 +143,7 @@ h1 {
 
 .time {
 	color: #a1c0ff;
-	font-family: 'Cascadia Code', monospace;
+	/* Font-family will be set dynamically by JavaScript */
 	font-size: 22px;
 	position: absolute;
 	width: auto;
@@ -247,7 +244,7 @@ p {
 }
 
 div[class=username] {
-	font-family: 'Cascadia Code', monospace;
+	/* Font-family will be set dynamically by JavaScript */
 	color: #0972D6;
 	display: block;
 	width: auto;
@@ -325,7 +322,7 @@ form:focus-within input::placeholder {
 		border: none;
 		outline: none;
 		color: #d5edff;
-		font-family: 'Cascadia Code', monospace;
+		/* Font-family will be set dynamically by JavaScript */
 		font-size: 16px;
 	}
 
@@ -339,7 +336,7 @@ form:focus-within input::placeholder {
 		color: rgb(103, 149, 255);
 		padding: 12px 26px;
 		cursor: pointer;
-		font-family: 'Cascadia Code', monospace;
+		/* Font-family will be set dynamically by JavaScript */
 		font-weight: bold;
 		transition: all 0.3s ease;
 		position: absolute;
