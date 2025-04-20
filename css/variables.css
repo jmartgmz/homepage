@@ -1,0 +1,40 @@
+:root {
+    /* Color palette */
+    --color-background: #0F0F12;
+    --color-panel: #18181D;
+    --color-border: #2323288f;
+    --color-text: #BFBFBF;
+    --color-text-bright: #FEFFFA;
+    
+    /* Category colors */
+    --color-green: #4FAE0F;
+    --color-blue: #0972D6;
+    --color-red: #ed3434;
+    --color-yellow: #edd934;
+    --color-time: #a1c0ff;
+    
+    /* Search bar colors */
+    --color-search-bg: rgba(255, 255, 255, 0);
+    --color-search-placeholder: rgba(133, 176, 255, 0.5);
+    --color-search-button-bg: rgba(0, 43, 172, 0.6);
+    --color-search-button-text: rgb(103, 149, 255);
+    
+    /* Transitions */
+    --transition-fast: all 0.5s;
+    --transition-normal: all 0.8s;
+    
+    /* Layout */
+    --original-width: 1344px;
+    --original-height: 638px;
+    --default-scale: 0.8;
+    
+    /* Font sizes */
+    --font-size-base: 20px;
+    --font-size-large: 26px;
+    --font-size-small: 16px;
+    
+    /* Spacing */
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+}
