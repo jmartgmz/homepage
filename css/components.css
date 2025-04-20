@@ -37,10 +37,10 @@ ul:last-of-type {
 ul > a {
     display: block;
     text-decoration: none;
-    color: var(--color-text);
+    color: #d5edff;
     padding-bottom: var(--spacing-small);
     margin-bottom: 10px;
-    border-bottom: 2px solid var(--color-background);
+    border-bottom: 1px solid #0700d953;
     transition: var(--transition-normal);
 }
 
