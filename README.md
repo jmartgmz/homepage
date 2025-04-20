@@ -2,8 +2,6 @@
 
 A clean, customizable browser startpage with configurable navigation links, search functionality, and responsive design.
 
-![alt tag](homepg.png "Startpage preview")
-
 ## Features
 
 - Customizable navigation categories and links
@@ -22,12 +20,6 @@ The startpage can be easily customized by editing the `js/config.js` file:
 3. Update colors and theme
 4. Configure custom font
 
-## Installation
-
-1. Clone this repository
-2. Open `index.html` in your browser
-3. Set as your browser's homepage or new tab page
-
 ## Development
 
 This project uses:
@@ -35,5 +27,3 @@ This project uses:
 - CSS3 for styling
 - JavaScript for functionality
 - CSS variables for theming
-
-Don't hesitate to fork and modify to your liking.
