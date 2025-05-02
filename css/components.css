@@ -21,7 +21,7 @@ ul {
     text-align: center;
     height: 100%;
     border-color: var(--color-panel);
-    border-right-width: 3px;
+    border-right-width: var(--border-width);
     border-right-style: solid;
     padding: 20px 50px;
     transition: var(--transition-normal);
@@ -40,7 +40,7 @@ ul > a {
     color: #d5edff;
     padding-bottom: var(--spacing-small);
     margin-bottom: 10px;
-    border-bottom: 1px solid #0700d953;
+    border-bottom: 1px solid #002945b4; /* BUTTON BELOW THE TILE!!! */
     transition: var(--transition-normal);
 }
 
@@ -132,7 +132,7 @@ ul[class=yellow] > li > a:hover {
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     border-style: solid;
-    border-width: 2px;
+    border-width: var(--border-width);
     border-color: var(--color-border);
     overflow: hidden;
     transition: all 0.3s ease;
@@ -163,23 +163,6 @@ ul[class=yellow] > li > a:hover {
     color: var(--color-search-placeholder);
     font-style: italic;
 }
-
-.search-bar button {
-    background: var(--color-search-button-bg);
-    color: var(--color-search-button-text);
-    padding: 12px 26px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    position: absolute;
-    right: 0;
-    top: -1px;
-    bottom: -1px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: var(--color-border);
-}
-
 /* Time display */
 .time-display {
     color: var(--color-time);
