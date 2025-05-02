@@ -39,8 +39,8 @@ ul > a {
     text-decoration: none;
     color: #d5edff;
     padding-bottom: var(--spacing-small);
-    margin-bottom: 10px;
-    border-bottom: 1px solid #002945b4; /* BUTTON BELOW THE TILE!!! */
+    margin-bottom: 5px;
+    border-bottom: 0px solid #00000000; /* BORDER BELOW THE TILE!!! */
     transition: var(--transition-normal);
 }
 
