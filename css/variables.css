@@ -2,9 +2,12 @@
     /* Color palette */
     --color-background: #0F0F12;
     --color-panel: #18181D;
-    --color-border: #2323288f;
     --color-text: #BFBFBF;
     --color-text-bright: #FEFFFA;
+    
+    /* Border properties - centralized */
+    --border-width: 2px;
+    --color-border: #23232851;
     
     /* Category colors */
     --color-green: #4FAE0F;
