@@ -47,8 +47,8 @@ const navigationConfig = {
 const globalSettings = {
   // Font configuration
   font: {
-    family: 'Montserrat',
-    path: 'assets/fonts/montserrat/Montserrat-Regular.ttf',
+    family: 'Font',
+    path: 'assets/fonts/apple/Univers 47 Condensed Light Oblique.otf',
   },
   // Search engine (default: Google)
   searchEngine: {
