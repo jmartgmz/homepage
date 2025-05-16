@@ -41,6 +41,15 @@ const navigationConfig = {
       { name: "Claude", url: "https://claude.ai" },
     ]
   },
+    // University category
+  Learning: {
+    title: "Learning",
+    color: "blue",
+    links: [
+      { name: "Odin Project", url: "https://www.theodinproject.com/dashboard" },
+      { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+    ]
+  },
 };
 
 // Global appearance and behavior settings

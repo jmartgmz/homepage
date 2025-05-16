@@ -23,7 +23,7 @@ ul {
     border-color: var(--color-panel);
     border-right-width: var(--border-width);
     border-right-style: solid;
-    padding: 20px 50px;
+    padding: 20px 45px;
     transition: var(--transition-normal);
     cursor: default;
     list-style-type: none;
