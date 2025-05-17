@@ -46,7 +46,7 @@ const navigationConfig = {
     title: "Learning",
     color: "blue",
     links: [
-      { name: "Odin Project", url: "https://www.theodinproject.com/dashboard" },
+      { name: "Odin", url: "https://www.theodinproject.com/dashboard" },
       { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
     ]
   },

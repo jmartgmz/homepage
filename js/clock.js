@@ -7,7 +7,7 @@
  * Updates the clock with current date and time
  */
 function updateClock() {
-    const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+    const days = ['SUNDAY', 'MONDAY -', 'TUESDAY -', 'WEDNESDAY -', 'THURSDAY -', 'FRIDAY -', 'SATURDAY -'];
     const now = new Date();
     
     // Format hours for 12-hour clock
@@ -21,10 +21,9 @@ function updateClock() {
         days[now.getDay()] + " " +
         String(now.getDate()).padStart(2, '0') + "/" +
         String(now.getMonth() + 1).padStart(2, '0') + "/" +
-        now.getFullYear() + " " +
+        now.getFullYear() + " - " +
         String(hours).padStart(2, '0') + ":" +
-        String(now.getMinutes()).padStart(2, '0') + ":" +
-        String(now.getSeconds()).padStart(2, '0') + " " +
+        String(now.getMinutes()).padStart(2, '0') + " " +
         ampm;
     
     // Update the element with the formatted time
