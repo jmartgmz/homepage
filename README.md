@@ -1,11 +1,29 @@
-Startpage
-========
+# Startpage
 
-A simple startpage to meet my needs.
+A clean, customizable browser startpage with configurable navigation links, search functionality, and responsive design.
 
-![alt tag](homepg.png "Startpage preview")
+## Features
 
-This repository contains a custom startpage made using HTML, CSS and a little Javascript. I'm not a web developer, this was a simple project I worked on to refresh my basic understanding of HTML and CSS.
+- Customizable navigation categories and links
+- Responsive design that scales to fit your screen
+- Live clock with date and time
+- Clean, modern interface
+- Google search integration
+- Easy configuration through a single config file
 
+## Customization
 
-Don't hesitate to fork and modify to your liking.
+The startpage can be easily customized by editing the `js/config.js` file:
+
+1. Add or modify navigation categories
+2. Change link destinations
+3. Update colors and theme
+4. Configure custom font
+
+## Development
+
+This project uses:
+- HTML5 for structure
+- CSS3 for styling
+- JavaScript for functionality
+- CSS variables for theming

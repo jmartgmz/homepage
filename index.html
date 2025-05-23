@@ -1,171 +1,52 @@
 <!DOCTYPE html>
-<!--Starpage with configurable navigation -->
-<html>
+<html lang="en">
 <head>
     <title>Home</title>
-    <link rel="icon" type="image/x-icon" href="icons/homewhite.ico">
+    <link rel="icon" type="image/x-icon" href="assets/icons/homewhite.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Load configuration file first -->
-    <script src="javascript/config.js"></script>
+    <meta name="description" content="A customizable browser startpage">
     
-    <!-- Font loader script - must run before CSS loads -->
-    <script>
-        // Create a style element for the dynamic font-face declaration
-        const fontStyle = document.createElement('style');
-        document.head.appendChild(fontStyle);
-        
-        // Set up the dynamic font-face declaration based on config
-        function setupFont() {
-            if (typeof globalSettings !== 'undefined' && globalSettings.font) {
-                // Create @font-face rule
-                const fontFace = `
-                    @font-face {
-                        font-family: '${globalSettings.font.family}';
-                        src: url('${globalSettings.font.path}');
-                    }
-                `;
-                
-                // Add the font-face declaration to the style element
-                fontStyle.textContent = fontFace;
-                
-                // Create another style element for setting font-family on elements
-                const fontFamilyStyle = document.createElement('style');
-                fontFamilyStyle.textContent = `
-                    body, .time, div[class=username], .search-bar input[type="text"], .search-bar button {
-                        font-family: '${globalSettings.font.family}', monospace;
-                    }
-                `;
-                document.head.appendChild(fontFamilyStyle);
-            }
-        }
-        
-        // Run setup as soon as possible
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', setupFont);
-        } else {
-            setupFont();
-        }
-    </script>
+    <!-- Configuration (must load first) -->
+    <script src="js/config.js"></script>
     
-    <!-- Load CSS after font setup -->
-    <link rel="stylesheet" type="text/css" href="css/general.css" />
+    <!-- Dynamically load font before CSS -->
+    <script src="js/ui.js"></script>
+    
+    <!-- CSS files organized by purpose -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
     <div class="scaling-container">
-        <div class="main" id="main1" style="display: block">
-            <img class="image-wrapper" src="images/tower.png" />
-            <nav id="navigation">
-                <!-- Navigation will be generated from config.js -->
+        <main class="main-panel" id="main-panel">
+            <img class="sidebar-image" src="assets/images/tower.png" alt="Decorative sidebar image">
+            <nav id="navigation" aria-label="Main navigation">
+                <!-- Navigation will be dynamically generated -->
             </nav>
-        </div>
-        <div class="bottomcontainer">
-            <!--Live clock script-->
-            <div class="time" id="time">
+        </main>
+        
+        <footer class="footer-container">
+            <div class="time-display" id="time-display" aria-live="polite">
                 <!-- Clock will be updated by JavaScript -->
             </div>
-            <div class="username">     </div>
-        </div>
+            <div class="username-display" id="username-display"></div>
+        </footer>
 
-        <!-- Search the Web Bar -->
-        <div class="search-bar">
+        <!-- Search Bar -->
+        <div class="search-bar" role="search">
             <form action="https://www.google.com/search" method="get" target="_blank">
-                <input type="text" name="q" placeholder="Search the web..." required />
-                <button type="submit">SEARCH</button>
+                <input type="text" name="q" placeholder="Search the web..." required 
+                       aria-label="Search the web">
             </form>
         </div>
     </div>
     
-    <!-- Script to generate navigation from config and handle scaling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navElement = document.getElementById('navigation');
-            
-            // Generate navigation from config
-            for (const category in navConfig) {
-                const categoryData = navConfig[category];
-                
-                // Create category element
-                const ul = document.createElement('ul');
-                ul.className = categoryData.color;
-                
-                // Create category title
-                const titleElement = document.createElement('a');
-                titleElement.textContent = categoryData.title;
-                ul.appendChild(titleElement);
-                
-                // Create links
-                categoryData.links.forEach(link => {
-                    const li = document.createElement('li');
-                    const a = document.createElement('a');
-                    a.href = link.url;
-                    a.textContent = link.name;
-                    li.appendChild(a);
-                    ul.appendChild(li);
-                });
-                
-                // Add category to navigation
-                navElement.appendChild(ul);
-            }
-            
-            // Initialize clock
-            updateClock();
-            
-            // Initialize scaling
-            updateScale();
-            
-            // Add window resize event listener
-            window.addEventListener('resize', updateScale);
-        });
-        
-        // Clock function
-        function updateClock() {
-            var days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-            var m = new Date();
-            var hours = m.getHours();
-            var ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12; // the hour '0' should be '12'
-            var dateString =
-                (days[m.getDay()]) + " " +
-                ("0" + m.getDate()).slice(-2) + "/" +
-                ("0" + (m.getMonth() + 1)).slice(-2) + "/" +
-                m.getFullYear() + " " +
-                ("0" + hours).slice(-2) + ":" +
-                ("0" + m.getMinutes()).slice(-2) + ":" +
-                ("0" + m.getSeconds()).slice(-2) + " " +
-                ampm;
-            // set the content of the element with the ID time to the formatted string
-            document.getElementById('time').innerHTML = dateString;
-            // call this function again in 1000ms
-            setTimeout(updateClock, 1000);
-        }
-        
-        // Scale function - updates the scale factor based on window size
-        function updateScale() {
-            const container = document.querySelector('.scaling-container');
-            const originalWidth = 1344; // Original design width
-            const originalHeight = 638; // Original design height
-            const baseScale = 0.8; // Base scale factor (70% of original size)
-            
-            // Calculate available space
-            const availableWidth = window.innerWidth;
-            const availableHeight = window.innerHeight;
-            
-            // Calculate scale factors for width and height
-            const scaleX = (availableWidth / originalWidth) * baseScale;
-            const scaleY = (availableHeight / originalHeight) * baseScale;
-            
-            // Use the smaller scale factor to ensure everything fits
-            const scaleFactor = Math.min(scaleX, scaleY);
-            
-            // Apply the scale factor as a CSS variable
-            document.documentElement.style.setProperty('--scale-factor', scaleFactor);
-            
-            // For debugging (optional)
-            console.log(`Window size: ${availableWidth}x${availableHeight}, Scale: ${scaleFactor}`);
-        }
-    </script>
+    <!-- Core functionality scripts -->
+    <script src="js/clock.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
