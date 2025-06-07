@@ -47,7 +47,7 @@ const navigationConfig = {
     color: "blue",
     links: [
       { name: "Odin", url: "https://www.theodinproject.com/dashboard" },
-      { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+      { name: "Github", url: "https://github.com/jmartgmz" },
     ]
   },
 };
