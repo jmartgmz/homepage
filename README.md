@@ -1,5 +1,7 @@
 # Startpage
 
+![Homepage Demo](assets/images/homepage-demo.png)
+
 A clean, customizable browser startpage with configurable navigation links, search functionality, and responsive design.
 
 ## Features
