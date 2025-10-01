@@ -3,19 +3,26 @@
  * Initializes all functionality and sets up event listeners
  */
 
+// Track which navigation set is currently active
+let isAlternateNavigation = false;
+
 /**
  * Generates navigation menu from configuration
  */
-function generateNavigation() {
+function generateNavigation(configToUse = null) {
     const navElement = document.getElementById('navigation');
-    if (!navElement || !navigationConfig) return;
+    if (!navElement) return;
+    
+    // Use provided config or default based on current state
+    const config = configToUse || (isAlternateNavigation ? alternateNavigationConfig : navigationConfig);
+    if (!config) return;
     
     // Clear existing navigation
     navElement.innerHTML = '';
     
     // Generate navigation from config
-    for (const categoryKey in navigationConfig) {
-        const category = navigationConfig[categoryKey];
+    for (const categoryKey in config) {
+        const category = config[categoryKey];
         
         // Create category element
         const categoryElement = document.createElement('ul');
@@ -38,6 +45,23 @@ function generateNavigation() {
         
         // Add category to navigation
         navElement.appendChild(categoryElement);
+    }
+}
+
+/**
+ * Toggles between navigation sets
+ */
+function toggleNavigation() {
+    isAlternateNavigation = !isAlternateNavigation;
+    generateNavigation();
+    
+    // Update button appearance to indicate current state
+    const toggleBtn = document.getElementById('nav-toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.textContent = isAlternateNavigation ? '<' : '>';
+        toggleBtn.setAttribute('aria-label', 
+            isAlternateNavigation ? 'Switch to primary navigation' : 'Switch to alternate navigation'
+        );
     }
 }
 
@@ -88,6 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize scaling
     updateScale();
+    
+    // Set up navigation toggle button
+    const toggleBtn = document.getElementById('nav-toggle-btn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', toggleNavigation);
+    }
     
     // Add window resize event listener
     window.addEventListener('resize', updateScale);

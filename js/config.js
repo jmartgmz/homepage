@@ -3,7 +3,7 @@
  * This file contains all user-configurable settings for the startpage
  */
 
-// Navigation menu categories and links
+// Navigation menu categories and links (Primary set)
 const navigationConfig = {
   // University category
   university: {
@@ -32,22 +32,35 @@ const navigationConfig = {
       { name: "Storage", url: "https://drive.google.com/drive/home" },
     ]
   },
-  // AI models category
-  aiModels: {
-    title: "LLM",
+  // Server category
+    server: {
+    title: "Server",
     color: "blue",
     links: [
-      { name: "GPT", url: "https://chatgpt.com" },
-      { name: "Claude", url: "https://claude.ai" },
+      { name: "Files", url: "https://filebrowser.cosmos.karyio.com/" },
+      { name: "Cosmos", url: "https://cosmos.karyio.com/cosmos-ui/" },
     ]
   },
-    // University category
+};
+
+// Alternate navigation set (shows when toggled)
+const alternateNavigationConfig = {
+  // Learning category
   Learning: {
     title: "Learning",
     color: "blue",
     links: [
       { name: "Odin", url: "https://www.theodinproject.com/dashboard" },
       { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+    ]
+  },
+  // LLM Category
+  aiModels: {
+    title: "LLM",
+    color: "blue",
+    links: [
+      { name: "GPT", url: "https://chatgpt.com" },
+      { name: "Claude", url: "https://claude.ai" },
     ]
   },
 };
@@ -73,5 +86,5 @@ const globalSettings = {
 
 // Export configuration for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { navigationConfig, globalSettings };
+  module.exports = { navigationConfig, alternateNavigationConfig, globalSettings };
 }

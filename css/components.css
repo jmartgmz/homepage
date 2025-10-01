@@ -1,32 +1,32 @@
 /* Navigation styling */
 nav {
-    color: var(--color-text);
-    font-size: var(--font-size-base);
-    text-align: center;
+    position: relative;
     top: 180px;
     left: -18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 80%;
     max-width: 800px;
     margin: 0 auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    color: var(--color-text);
+    text-align: center;
+    font-size: var(--font-size-base);
 }
 
 /* Category lists */
 ul {
     display: inline-flex;
     flex-direction: column;
-    text-align: center;
     height: 100%;
+    padding: 30px 45px;
     border-color: var(--color-panel);
     border-right-width: var(--border-width);
     border-right-style: solid;
-    padding: 30px 45px;
-    transition: var(--transition-normal);
-    cursor: default;
     list-style-type: none;
+    cursor: default;
+    transition: var(--transition-normal);
+    text-align: center;
 }
 
 ul:last-of-type {
@@ -36,12 +36,12 @@ ul:last-of-type {
 /* Category titles */
 ul > a {
     display: block;
-    text-decoration: none;
-    color: #d5edff;
     padding-bottom: var(--spacing-small);
     margin-bottom: 5px;
     border-bottom: 0px solid #00000000; /* BORDER BELOW THE TILE!!! */
+    color: #d5edff;
     transition: var(--transition-normal);
+    text-decoration: none;
 }
 
 /* Category list items */
@@ -51,9 +51,9 @@ ul > li {
 }
 
 ul > li > a {
-    text-decoration: none;
     color: var(--color-text);
     transition: var(--transition-normal);
+    text-decoration: none;
 }
 
 /* Color-specific hover states - Green */
@@ -62,8 +62,8 @@ ul[class=green]:hover {
 }
 
 ul[class=green] > a:hover {
-    color: var(--color-green);
     border-bottom-color: var(--color-green);
+    color: var(--color-green);
     transition: var(--transition-fast);
 }
 
@@ -78,8 +78,8 @@ ul[class=blue]:hover {
 }
 
 ul[class=blue] > a:hover {
-    color: var(--color-blue);
     border-bottom-color: var(--color-blue);
+    color: var(--color-blue);
     transition: var(--transition-fast);
 }
 
@@ -94,8 +94,8 @@ ul[class=red]:hover {
 }
 
 ul[class=red] > a:hover {
-    color: var(--color-red);
     border-bottom-color: var(--color-red);
+    color: var(--color-red);
     transition: var(--transition-fast);
 }
 
@@ -110,8 +110,8 @@ ul[class=yellow]:hover {
 }
 
 ul[class=yellow] > a:hover {
-    color: var(--color-yellow);
     border-bottom-color: var(--color-yellow);
+    color: var(--color-yellow);
     transition: var(--transition-fast);
 }
 
@@ -126,36 +126,36 @@ ul[class=yellow] > li > a:hover {
     top: -57px;
     right: 0;
     left: -4px;
+    overflow: hidden;
     width: 1385px;
     margin: 0 auto;
-    background: rgba(25, 25, 25, 0.6);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    border-style: solid;
     border-width: var(--border-width);
+    border-style: solid;
     border-color: var(--color-border);
-    overflow: hidden;
+    background: rgba(25, 25, 25, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .search-bar form {
+    position: relative;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     width: 100%;
     padding: 0;
-    position: relative;
-    top: 0;
-    left: 0;
     margin: 0;
 }
 
 .search-bar input[type="text"] {
     flex: 1;
     padding: 12px 16px;
-    background: transparent;
     border: none;
     outline: none;
     color: #d5edff;
+    background: transparent;
     font-size: var(--font-size-small);
 }
 
@@ -165,20 +165,52 @@ ul[class=yellow] > li > a:hover {
 }
 /* Time display */
 .time-display {
-    color: var(--color-time);
-    font-size: 22px;
     position: absolute;
+    left: 0;
     width: auto;
     height: auto;
-    left: 0;
+    color: var(--color-time);
+    font-size: 22px;
 }
 
 /* Username display */
 .username-display {
-    color: var(--color-blue);
-    display: block;
-    width: auto;
     position: relative;
     left: 1218px;
+    display: block;
+    width: auto;
+    color: var(--color-blue);
     font-size: 22px;
+}
+
+/* Navigation toggle button */
+.nav-toggle-btn {
+    position: absolute;
+    z-index: 10;
+    top: 608px;
+    left: 1353px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--color-border);
+    border-radius: 0%;
+    opacity: 0.7;
+    color: var(--color-time);
+    background-color: var(--color-panel);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    font-size: 18px;
+}
+
+.nav-toggle-btn:hover {
+    border-color: var(--color-blue);
+    opacity: 1;
+    background-color: var(--color-blue);
+    transform: scale(1.1);
+}
+
+.nav-toggle-btn:active {
+    transform: scale(0.95);
 }
