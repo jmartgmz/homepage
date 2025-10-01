@@ -63,6 +63,15 @@ const alternateNavigationConfig = {
       { name: "Claude", url: "https://claude.ai" },
     ]
   },
+  // Programming Category
+  Programming: {
+    title: "Programming",
+    color: "blue",
+    links: [
+      { name: "Wiki", url: "https://wikipedia.com" },
+      { name: "Github", url: "https://github.com/jmartgmz" },
+    ]
+  },
 };
 
 // Global appearance and behavior settings
