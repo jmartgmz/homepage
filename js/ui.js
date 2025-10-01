@@ -12,26 +12,56 @@ document.head.appendChild(fontStyle);
  */
 function setupFont() {
     if (typeof globalSettings !== 'undefined' && globalSettings.font) {
-        // Create @font-face rule
+        // Get the base URL for GitHub Pages compatibility
+        const baseUrl = window.location.pathname.endsWith('/') ? 
+            window.location.pathname : 
+            window.location.pathname + '/';
+        
+        // Construct font path that works both locally and on GitHub Pages
+        const fontPath = globalSettings.font.path.startsWith('http') ? 
+            globalSettings.font.path : 
+            (baseUrl === '/' ? globalSettings.font.path : baseUrl + globalSettings.font.path);
+        
+        // Create @font-face rule with fallback
         const fontFace = `
             @font-face {
                 font-family: '${globalSettings.font.family}';
-                src: url('${globalSettings.font.path}');
+                src: url('${fontPath}');
+                font-display: swap;
             }
         `;
         
         // Add the font-face declaration to the style element
         fontStyle.textContent = fontFace;
         
-        // Create another style element for setting font-family on elements
-        const fontFamilyStyle = document.createElement('style');
-        fontFamilyStyle.textContent = `
-            body, .time-display, .username-display, .search-bar input[type="text"], .search-bar button {
-                font-family: '${globalSettings.font.family}', sans-serif;
-            }
-        `;
-        document.head.appendChild(fontFamilyStyle);
+        // Test if font loads successfully
+        const testFont = new FontFace(globalSettings.font.family, `url(${fontPath})`);
+        testFont.load().then(() => {
+            console.log('Custom font loaded successfully');
+            applyFont(globalSettings.font.family, globalSettings.font.fallback || 'sans-serif');
+        }).catch(() => {
+            console.warn('Custom font failed to load, using fallback');
+            applyFont(null, globalSettings.font.fallback || 'Arial, Helvetica, sans-serif');
+        });
+    } else {
+        // No custom font configured, use default
+        applyFont(null, 'Arial, Helvetica, sans-serif');
     }
+}
+
+/**
+ * Applies font family to the document
+ */
+function applyFont(customFont, fallback) {
+    const fontFamilyStyle = document.createElement('style');
+    const fontFamily = customFont ? `'${customFont}', ${fallback}` : fallback;
+    
+    fontFamilyStyle.textContent = `
+        * {
+            font-family: ${fontFamily};
+        }
+    `;
+    document.head.appendChild(fontFamilyStyle);
 }
 
 /**

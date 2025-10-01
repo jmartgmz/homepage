@@ -71,6 +71,7 @@ const globalSettings = {
   font: {
     family: 'Font',
     path: 'assets/fonts/apple/Univers 47 Condensed Light Oblique.otf',
+    fallback: 'Arial, Helvetica, sans-serif'
   },
   // Search engine (default: Google)
   searchEngine: {
