@@ -65,10 +65,10 @@ const alternateNavigationConfig = {
   },
   // Programming Category
   Programming: {
-    title: "Programming",
+    title: "Important",
     color: "blue",
     links: [
-      { name: "Wiki", url: "https://wikipedia.com" },
+      { name: "Indeed", url: "https://secure.indeed.com" },
       { name: "Github", url: "https://github.com/jmartgmz" },
     ]
   },
