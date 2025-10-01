@@ -3,63 +3,63 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(var(--scale-factor, var(--default-scale)));
-    transform-origin: center center;
     width: var(--original-width);
     height: var(--original-height);
+    transform: translate(-50%, -50%) scale(var(--scale-factor, var(--default-scale)));
+    transform-origin: center center;
 }
 
 /* Main panel styling */
 .main-panel {
-    display: block;
-    border-style: solid;
-    border-width: var(--border-width);
-    border-color: var(--color-border);
     position: absolute;
     top: -4px;
+    right: 380px;
+    left: -4px;
+    display: block;
     width: 1072px;
     height: 600px;
-    left: -4px;
-    right: 380px;
     margin: auto;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--color-border);
     background-color: var(--color-panel);
     text-align: center;
 }
 
 /* Footer container */
 .footer-container {
+    position: absolute;
+    top: 610px;
+    left: -4px;
     width: 1080px;
     height: 24px;
-    position: absolute;
-    left: -4px;
-    top: 610px;
 }
 
 /* Sidebar image wrapper */
 .sidebar-image {
-    object-fit: cover;
-    border-style: solid;
-    border-width: var(--border-width);
-    border-color: var(--color-border);
     position: absolute;
     top: -2px;
     bottom: 400px;
+    left: 1082px;
     width: 300px;
     height: 600px;
-    left: 1082px;
+    border-width: var(--border-width);
+    border-style: solid;
+    border-color: var(--color-border);
     background-color: var(--color-panel);
-    background-position: center center;
     background-repeat: no-repeat;
+    background-position: center center;
+    object-fit: cover;
 }
 
 /* Button styling (if needed) */
 .button {
+    float: left;
     width: 20px;
     height: 20px;
-    float: left;
     margin-right: 4px;
-    border-style: solid;
     border-width: 4px;
+    border-style: solid;
     border-color: var(--color-background);
     background-color: #FFFFFF;
 }

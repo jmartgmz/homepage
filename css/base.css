@@ -1,31 +1,31 @@
 /* Base styling */
 html,
 body {
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    color: var(--color-text);
     background-color: var(--color-background);
     font-size: var(--font-size-base);
-    color: var(--color-text);
 }
 
 h1 {
-    font-weight: normal;
     color: var(--color-text-bright);
+    font-weight: normal;
 }
 
 p {
-    font-size: var(--font-size-base);
     padding: var(--spacing-large);
     color: var(--color-text-bright);
+    font-size: var(--font-size-base);
 }
 
 a {
-    text-decoration: none;
     color: inherit;
     transition: var(--transition-normal);
+    text-decoration: none;
 }
 
 /* Utility classes */
@@ -34,8 +34,8 @@ a {
 }
 
 .litequote {
-    font-weight: normal;
-    font-size: 24px;
-    color: var(--color-text-bright);
     padding: 0 40px;
+    color: var(--color-text-bright);
+    font-size: 24px;
+    font-weight: normal;
 }
