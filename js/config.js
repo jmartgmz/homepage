@@ -51,7 +51,7 @@ const alternateNavigationConfig = {
     color: "blue",
     links: [
       { name: "Odin", url: "https://www.theodinproject.com/dashboard" },
-      { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+      { name: "Youtube", url: "https://youtube.com" },
     ]
   },
   // LLM Category
@@ -70,6 +70,14 @@ const alternateNavigationConfig = {
     links: [
       { name: "Indeed", url: "https://secure.indeed.com" },
       { name: "Github", url: "https://github.com/jmartgmz" },
+    ]
+  },
+    Improve: {
+    title: "Improve",
+    color: "blue",
+    links: [
+      { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+      { name: "Monkeytype", url: "https://monkeytype.com/" },
     ]
   },
 };
