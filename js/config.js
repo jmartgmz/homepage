@@ -76,7 +76,7 @@ const alternateNavigationConfig = {
     title: "Improve",
     color: "blue",
     links: [
-      { name: "Leetcode", url: "https://leetcode.com/problemset/all/" },
+      { name: "Neetcode", url: "https://neetcode.io/practice" },
       { name: "Monkeytype", url: "https://monkeytype.com/" },
     ]
   },
