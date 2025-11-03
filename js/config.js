@@ -51,7 +51,8 @@ const alternateNavigationConfig = {
     color: "blue",
     links: [
       { name: "Odin", url: "https://www.theodinproject.com/dashboard" },
-      { name: "Youtube", url: "https://youtube.com" },
+      { name: "Renshuu", url: "https://www.renshuu.org/me" },
+      { name: "Neetcode", url: "https://neetcode.io/practice" },
     ]
   },
   // LLM Category
@@ -61,22 +62,26 @@ const alternateNavigationConfig = {
     links: [
       { name: "GPT", url: "https://chatgpt.com" },
       { name: "Claude", url: "https://claude.ai" },
+      { name: "Gemini", url: "https://gemini.google.com/app"}
     ]
   },
-  // Programming Category
-  Programming: {
+  // Important Category
+  Important: {
     title: "Important",
     color: "blue",
     links: [
-      { name: "Indeed", url: "https://secure.indeed.com" },
       { name: "Github", url: "https://github.com/jmartgmz" },
+      { name: "Indeed", url: "https://secure.indeed.com" },
+      { name: "Simplify", url: "https://simplify.jobs/dashboard"}
     ]
   },
+  // Improvement Category
     Improve: {
     title: "Improve",
     color: "blue",
     links: [
-      { name: "Neetcode", url: "https://neetcode.io/practice" },
+      { name: "Anki", url: "https://ankiweb.net" },
+      { name: "Youtube", url: "https://www.youtube.com/" },
       { name: "Monkeytype", url: "https://monkeytype.com/" },
     ]
   },

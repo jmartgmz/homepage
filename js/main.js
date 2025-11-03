@@ -121,4 +121,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add window resize event listener
     window.addEventListener('resize', updateScale);
+
+    // Add keyboard event listener for navigation and search focus
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+            toggleNavigation();
+        } else if (e.key === 'ArrowUp') {
+            // Focus the search bar input
+            const searchInput = document.querySelector('.search-bar input[type="text"]');
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+    });
 });
