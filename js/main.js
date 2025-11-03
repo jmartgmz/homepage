@@ -123,7 +123,58 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', updateScale);
 
     // Add keyboard event listener for navigation and search focus
+    // Add Google Calendar overlay to DOM (hidden by default)
+    const calendarOverlay = document.createElement('div');
+    calendarOverlay.id = 'calendar-overlay';
+    calendarOverlay.style.display = 'none';
+    calendarOverlay.style.position = 'fixed';
+    calendarOverlay.style.top = '0';
+    calendarOverlay.style.left = '0';
+    calendarOverlay.style.width = '100vw';
+    calendarOverlay.style.height = '100vh';
+    calendarOverlay.style.background = 'rgba(15,15,18,0.98)';
+    calendarOverlay.style.zIndex = '1000';
+    calendarOverlay.style.justifyContent = 'center';
+    calendarOverlay.style.alignItems = 'center';
+    calendarOverlay.style.display = 'flex';
+    calendarOverlay.innerHTML = `
+        <div style="background: #18181D; border-radius: 18px; box-shadow: 0 8px 32px #0008; padding: 24px; max-width: 90vw; max-height: 90vh; width: 1100px; height: 700px; display: flex; flex-direction: column; align-items: stretch;">
+            <div style="color: #BFBFBF; font-size: 26px; margin-bottom: 12px; text-align: left; font-family: inherit;">Google Calendar</div>
+            <iframe src="https://calendar.google.com/calendar/embed?mode=MONTH&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=1&bgcolor=%2318181D" style="border: none; width: 100%; height: 100%; flex: 1; background: #18181D; border-radius: 12px;" allowfullscreen></iframe>
+            <button id="close-calendar-btn" style="margin-top: 16px; align-self: flex-end; background: #232328; color: #BFBFBF; border: none; border-radius: 6px; padding: 8px 18px; font-size: 18px; cursor: pointer;">Close (Esc)</button>
+        </div>
+    `;
+    document.body.appendChild(calendarOverlay);
+
+    function showCalendarOverlay() {
+        calendarOverlay.style.display = 'flex';
+        const nav = document.getElementById('navigation');
+        if (nav) nav.style.display = 'none';
+        const toggleBtn = document.getElementById('nav-toggle-btn');
+        if (toggleBtn) toggleBtn.style.display = 'none';
+    }
+    function hideCalendarOverlay() {
+        calendarOverlay.style.display = 'none';
+        const nav = document.getElementById('navigation');
+        if (nav) nav.style.display = '';
+        const toggleBtn = document.getElementById('nav-toggle-btn');
+        if (toggleBtn) toggleBtn.style.display = '';
+    }
+
+    document.getElementById('close-calendar-btn').onclick = hideCalendarOverlay;
+
     document.addEventListener('keydown', function(e) {
+        if (calendarOverlay.style.display === 'flex') {
+            if (e.key === 'Escape' || e.key === 'ArrowUp') {
+                hideCalendarOverlay();
+            }
+            // Prevent navigation keys from acting when calendar is open
+            if (["ArrowRight","ArrowLeft","ArrowUp","ArrowDown"].includes(e.key)) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            return;
+        }
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
             toggleNavigation();
         } else if (e.key === 'ArrowUp') {
@@ -132,6 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (searchInput) {
                 searchInput.focus();
             }
+        } else if (e.key === 'ArrowDown') {
+            showCalendarOverlay();
         }
     });
 });
